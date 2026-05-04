@@ -93,8 +93,8 @@ const Index = () => {
             <Badge variant="outline" className="rounded-full border-primary/40 bg-primary/10 text-primary mb-6 px-4 py-1.5">
               <Sparkles className="size-3.5 mr-1.5" /> The new way to make video
             </Badge>
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.02] tracking-tight">
-              Reels that <span className="text-gradient italic">stop the scroll.</span>
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight pb-2">
+              Reels that <span className="text-gradient italic inline-block pb-1">stop the scroll.</span>
               <br />
               Made from a <span className="italic">single prompt.</span>
             </h1>
