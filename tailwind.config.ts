@@ -57,6 +57,7 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        "primary-glow": "hsl(var(--primary-glow))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -67,9 +68,6 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         serif: ['"Instrument Serif"', 'serif'],
       },
-      colors: {
-        "primary-glow": "hsl(var(--primary-glow))",
-      } as any,
       keyframes: {
         "accordion-down": {
           from: {
