@@ -195,6 +195,109 @@ const Index = () => {
         </div>
       </section>
 
+      {/* GENERATED OUTPUTS — live phone stack */}
+      <section id="outputs" className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[700px] h-[700px] bg-gradient-primary opacity-20 blur-[120px] rounded-full" />
+
+        <div className="container mx-auto px-4 grid lg:grid-cols-[0.9fr_1.1fr] gap-16 items-center">
+          {/* Copy side */}
+          <div className="relative">
+            <Badge variant="outline" className="rounded-full border-primary/40 bg-primary/10 text-primary mb-5 px-4 py-1.5">
+              <span className="size-2 rounded-full bg-red-500 animate-pulse mr-2" /> Real outputs · live
+            </Badge>
+            <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] pb-2">
+              Not renders. <br />
+              <span className="text-gradient italic">Real reels.</span>
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground max-w-md">
+              These are unedited, untouched outputs straight from Dextora — generated from a single sentence,
+              ready to post the moment they finish.
+            </p>
+
+            <div className="mt-8 space-y-4 max-w-md">
+              {[
+                { k: "Prompt-to-post time", v: "00:48" },
+                { k: "Resolution", v: "1080p · 9:16" },
+                { k: "Edits made by human", v: "Zero" },
+              ].map((s) => (
+                <div key={s.k} className="flex items-center justify-between glass rounded-xl px-5 py-3">
+                  <span className="text-sm text-muted-foreground">{s.k}</span>
+                  <span className="font-mono text-sm text-primary-glow">{s.v}</span>
+                </div>
+              ))}
+            </div>
+
+            <Button onClick={goToApp} size="lg" className="mt-8 bg-gradient-primary text-primary-foreground rounded-2xl shadow-glow">
+              Make one like this <ArrowRight className="ml-2 size-4" />
+            </Button>
+          </div>
+
+          {/* Phone stack side */}
+          <div className="relative h-[640px] md:h-[720px] mx-auto w-full max-w-[640px]">
+            {/* ambient glow */}
+            <div className="absolute inset-0 bg-gradient-primary opacity-25 blur-3xl rounded-full" />
+
+            {/* Back phone — tilted left */}
+            <div className="absolute left-0 top-8 w-[58%] -rotate-[10deg] hover:-rotate-[6deg] transition-transform duration-700 ease-out">
+              <div className="relative rounded-[2.2rem] border border-white/10 bg-card p-2.5 shadow-glow">
+                <div className="rounded-[1.7rem] overflow-hidden aspect-[9/16] relative bg-black">
+                  <video
+                    src="/videos/reel-output-1.mp4"
+                    autoPlay muted loop playsInline preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/50 to-transparent" />
+                  <div className="absolute top-3 left-3 right-3 flex items-center gap-2">
+                    <span className="size-2 rounded-full bg-red-500 animate-pulse" />
+                    <span className="text-[10px] font-medium text-white/90 uppercase tracking-wider">Output · 01</span>
+                  </div>
+                </div>
+              </div>
+              {/* floating prompt chip */}
+              <div className="absolute -left-4 -bottom-4 glass rounded-xl px-3 py-2 shadow-card max-w-[200px]">
+                <div className="text-[10px] uppercase tracking-wider text-primary-glow font-mono">prompt</div>
+                <div className="text-xs mt-0.5 leading-snug">"Cinematic product reveal, golden hour"</div>
+              </div>
+            </div>
+
+            {/* Front phone — tilted right, overlapping */}
+            <div className="absolute right-0 bottom-0 w-[58%] rotate-[8deg] hover:rotate-[4deg] transition-transform duration-700 ease-out z-10">
+              <div className="relative rounded-[2.2rem] border border-white/10 bg-card p-2.5 shadow-glow">
+                <div className="rounded-[1.7rem] overflow-hidden aspect-[9/16] relative bg-black">
+                  <video
+                    src="/videos/reel-output-2.mp4"
+                    autoPlay muted loop playsInline preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/50 to-transparent" />
+                  <div className="absolute top-3 left-3 right-3 flex items-center gap-2">
+                    <span className="size-2 rounded-full bg-red-500 animate-pulse" />
+                    <span className="text-[10px] font-medium text-white/90 uppercase tracking-wider">Output · 02</span>
+                  </div>
+                </div>
+              </div>
+              {/* floating stats chip */}
+              <div className="absolute -right-3 -top-4 glass rounded-xl px-3 py-2 shadow-card flex items-center gap-2">
+                <div className="size-7 rounded-md bg-gradient-primary grid place-items-center">
+                  <Sparkles className="size-3.5 text-white" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Rendered in</div>
+                  <div className="text-xs font-mono text-primary-glow">00:48</div>
+                </div>
+              </div>
+            </div>
+
+            {/* floating decorative chips */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass rounded-full px-4 py-2 text-xs text-white/90 z-20 hidden md:flex items-center gap-2 animate-float">
+              <span className="size-1.5 rounded-full bg-primary animate-pulse" />
+              Live · streaming from Dextora
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FEATURES */}
       <section id="features" className="py-24">
         <div className="container mx-auto px-4">
