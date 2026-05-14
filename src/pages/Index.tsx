@@ -218,7 +218,7 @@ const Index = () => {
             <div className="mt-8 space-y-4 max-w-md">
               {[
                 { k: "Prompt-to-post time", v: "00:48" },
-                { k: "Resolution", v: "1080p · 9:16" },
+                { k: "Format", v: "1080p · cinematic 16:9" },
                 { k: "Edits made by human", v: "Zero" },
               ].map((s) => (
                 <div key={s.k} className="flex items-center justify-between glass rounded-xl px-5 py-3">
@@ -233,52 +233,78 @@ const Index = () => {
             </Button>
           </div>
 
-          {/* Phone stack side */}
-          <div className="relative h-[640px] md:h-[720px] mx-auto w-full max-w-[640px]">
+          {/* Cinematic card stack — landscape-friendly */}
+          <div className="relative h-[560px] md:h-[640px] mx-auto w-full max-w-[680px]">
             {/* ambient glow */}
             <div className="absolute inset-0 bg-gradient-primary opacity-25 blur-3xl rounded-full" />
 
-            {/* Back phone — tilted left */}
-            <div className="absolute left-0 top-8 w-[58%] -rotate-[10deg] hover:-rotate-[6deg] transition-transform duration-700 ease-out">
-              <div className="relative rounded-[2.2rem] border border-white/10 bg-card p-2.5 shadow-glow">
-                <div className="rounded-[1.7rem] overflow-hidden aspect-[9/16] relative bg-black">
+            {/* Card 3 — back, tilted left */}
+            <div className="absolute left-0 top-2 w-[78%] -rotate-[8deg] hover:-rotate-[4deg] transition-transform duration-700 ease-out">
+              <div className="relative rounded-2xl border border-white/10 bg-card p-2 shadow-glow">
+                {/* faux browser chrome */}
+                <div className="flex items-center gap-1.5 px-2 py-1.5">
+                  <span className="size-2 rounded-full bg-red-500/70" />
+                  <span className="size-2 rounded-full bg-yellow-500/70" />
+                  <span className="size-2 rounded-full bg-green-500/70" />
+                  <span className="ml-2 text-[10px] font-mono text-muted-foreground">output · 03 · news.mp4</span>
+                </div>
+                <div className="rounded-xl overflow-hidden aspect-video relative bg-black">
+                  <video
+                    src="/videos/reel-output-3.mp4"
+                    autoPlay muted loop playsInline preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 left-3 flex items-center gap-2 glass rounded-full px-2 py-1">
+                    <span className="size-1.5 rounded-full bg-red-500 animate-pulse" />
+                    <span className="text-[10px] font-medium text-white/90 uppercase tracking-wider">Live</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 1 — middle right, tilted right */}
+            <div className="absolute right-0 top-[34%] w-[72%] rotate-[7deg] hover:rotate-[3deg] transition-transform duration-700 ease-out z-10">
+              <div className="relative rounded-2xl border border-white/10 bg-card p-2 shadow-glow">
+                <div className="flex items-center gap-1.5 px-2 py-1.5">
+                  <span className="size-2 rounded-full bg-red-500/70" />
+                  <span className="size-2 rounded-full bg-yellow-500/70" />
+                  <span className="size-2 rounded-full bg-green-500/70" />
+                  <span className="ml-2 text-[10px] font-mono text-muted-foreground">output · 01 · cinematic.mp4</span>
+                </div>
+                <div className="rounded-xl overflow-hidden aspect-video relative bg-black">
                   <video
                     src="/videos/reel-output-1.mp4"
                     autoPlay muted loop playsInline preload="metadata"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/50 to-transparent" />
-                  <div className="absolute top-3 left-3 right-3 flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-red-500 animate-pulse" />
-                    <span className="text-[10px] font-medium text-white/90 uppercase tracking-wider">Output · 01</span>
-                  </div>
                 </div>
               </div>
               {/* floating prompt chip */}
-              <div className="absolute -left-4 -bottom-4 glass rounded-xl px-3 py-2 shadow-card max-w-[200px]">
+              <div className="absolute -right-3 -top-5 glass rounded-xl px-3 py-2 shadow-card max-w-[220px] hidden md:block">
                 <div className="text-[10px] uppercase tracking-wider text-primary-glow font-mono">prompt</div>
                 <div className="text-xs mt-0.5 leading-snug">"Cinematic product reveal, golden hour"</div>
               </div>
             </div>
 
-            {/* Front phone — tilted right, overlapping */}
-            <div className="absolute right-0 bottom-0 w-[58%] rotate-[8deg] hover:rotate-[4deg] transition-transform duration-700 ease-out z-10">
-              <div className="relative rounded-[2.2rem] border border-white/10 bg-card p-2.5 shadow-glow">
-                <div className="rounded-[1.7rem] overflow-hidden aspect-[9/16] relative bg-black">
+            {/* Card 2 — front bottom-left */}
+            <div className="absolute left-2 bottom-0 w-[68%] -rotate-[4deg] hover:-rotate-[1deg] transition-transform duration-700 ease-out z-20">
+              <div className="relative rounded-2xl border border-white/10 bg-card p-2 shadow-glow">
+                <div className="flex items-center gap-1.5 px-2 py-1.5">
+                  <span className="size-2 rounded-full bg-red-500/70" />
+                  <span className="size-2 rounded-full bg-yellow-500/70" />
+                  <span className="size-2 rounded-full bg-green-500/70" />
+                  <span className="ml-2 text-[10px] font-mono text-muted-foreground">output · 02 · brand.mp4</span>
+                </div>
+                <div className="rounded-xl overflow-hidden aspect-video relative bg-black">
                   <video
                     src="/videos/reel-output-2.mp4"
                     autoPlay muted loop playsInline preload="metadata"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/50 to-transparent" />
-                  <div className="absolute top-3 left-3 right-3 flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-red-500 animate-pulse" />
-                    <span className="text-[10px] font-medium text-white/90 uppercase tracking-wider">Output · 02</span>
-                  </div>
                 </div>
               </div>
               {/* floating stats chip */}
-              <div className="absolute -right-3 -top-4 glass rounded-xl px-3 py-2 shadow-card flex items-center gap-2">
+              <div className="absolute -left-4 -bottom-5 glass rounded-xl px-3 py-2 shadow-card flex items-center gap-2">
                 <div className="size-7 rounded-md bg-gradient-primary grid place-items-center">
                   <Sparkles className="size-3.5 text-white" />
                 </div>
@@ -289,10 +315,10 @@ const Index = () => {
               </div>
             </div>
 
-            {/* floating decorative chips */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass rounded-full px-4 py-2 text-xs text-white/90 z-20 hidden md:flex items-center gap-2 animate-float">
+            {/* center live pill */}
+            <div className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 glass rounded-full px-4 py-2 text-xs text-white/90 z-30 hidden md:flex items-center gap-2 animate-float pointer-events-none">
               <span className="size-1.5 rounded-full bg-primary animate-pulse" />
-              Live · streaming from Dextora
+              3 outputs · streaming live
             </div>
           </div>
         </div>
