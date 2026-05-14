@@ -359,27 +359,165 @@ const Index = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how" className="py-24 relative">
+      <section id="how" className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[800px] h-[800px] bg-gradient-primary opacity-15 blur-[140px] rounded-full" />
+
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <Badge variant="outline" className="rounded-full border-primary/40 bg-primary/10 text-primary mb-4 px-3">How it works</Badge>
-            <h2 className="font-serif text-4xl md:text-6xl tracking-tight">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <Badge variant="outline" className="rounded-full border-primary/40 bg-primary/10 text-primary mb-5 px-4 py-1.5">
+              <Sparkles className="size-3.5 mr-1.5" /> How it works
+            </Badge>
+            <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-tight">
               Three steps. <span className="text-gradient italic">One masterpiece.</span>
             </h2>
+            <p className="text-muted-foreground mt-5 max-w-xl mx-auto text-lg">
+              From avatar to finished reel — see Dextora in action.
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { n: "01", t: "Describe", d: "Type your idea in any language. Add a vibe, a reference image, or a brand kit." },
-              { n: "02", t: "Generate", d: "Dextora composes the shots, motion, music and captions. Render in under a minute." },
-              { n: "03", t: "Post", d: "Download in 9:16, 1:1 or 16:9 — or push directly to Instagram, YouTube, TikTok." },
-            ].map((s) => (
-              <div key={s.n} className="relative glass rounded-3xl p-8">
-                <div className="font-serif text-7xl text-gradient leading-none">{s.n}</div>
-                <h3 className="mt-4 text-xl font-semibold">{s.t}</h3>
-                <p className="text-muted-foreground mt-2">{s.d}</p>
+
+          {/* Step 1 — Avatar Generation */}
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 items-center mb-28">
+            <div className="relative order-2 lg:order-1">
+              <div className="absolute -inset-8 bg-gradient-primary opacity-20 blur-3xl rounded-full" />
+              <div className="relative rounded-2xl border border-white/10 bg-card p-2 shadow-glow">
+                <div className="flex items-center gap-1.5 px-3 py-2">
+                  <span className="size-2.5 rounded-full bg-red-500/70" />
+                  <span className="size-2.5 rounded-full bg-yellow-500/70" />
+                  <span className="size-2.5 rounded-full bg-green-500/70" />
+                  <span className="ml-3 text-[11px] font-mono text-muted-foreground">step · 01 · avatar-studio</span>
+                </div>
+                <div className="rounded-xl overflow-hidden aspect-video relative bg-black">
+                  <video
+                    src="https://res.cloudinary.com/devxntr39/video/upload/v1778748193/avatar_gen_khucgo.mp4"
+                    autoPlay muted loop playsInline preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 left-3 flex items-center gap-2 glass rounded-full px-3 py-1.5">
+                    <span className="size-1.5 rounded-full bg-red-500 animate-pulse" />
+                    <span className="text-[10px] font-medium text-white/90 uppercase tracking-wider">Live</span>
+                  </div>
+                </div>
               </div>
-            ))}
+              {/* floating chip */}
+              <div className="absolute -right-3 -bottom-5 glass rounded-xl px-4 py-2.5 shadow-card flex items-center gap-2 hidden md:flex">
+                <div className="size-8 rounded-lg bg-gradient-primary grid place-items-center">
+                  <Sparkles className="size-4 text-white" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Avatar ready</div>
+                  <div className="text-xs font-mono text-primary-glow">00:12</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="order-1 lg:order-2">
+              <div className="font-serif text-8xl lg:text-9xl text-gradient leading-none opacity-80">01</div>
+              <h3 className="mt-5 text-2xl md:text-3xl font-semibold">Create your avatar</h3>
+              <p className="text-muted-foreground mt-3 text-lg leading-relaxed max-w-md">
+                Choose a face, pick a voice style, and let Dextora generate a hyper-realistic AI avatar — ready to present your brand in any language.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["Custom voices", "42 languages", "Lip-sync"].map((tag) => (
+                  <span key={tag} className="glass rounded-full px-3 py-1.5 text-xs text-muted-foreground">{tag}</span>
+                ))}
+              </div>
+            </div>
           </div>
+
+          {/* Step 2 — Generate with Prompt */}
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center mb-28">
+            <div>
+              <div className="font-serif text-8xl lg:text-9xl text-gradient leading-none opacity-80">02</div>
+              <h3 className="mt-5 text-2xl md:text-3xl font-semibold">Generate with a prompt</h3>
+              <p className="text-muted-foreground mt-3 text-lg leading-relaxed max-w-md">
+                Describe your reel in plain English or Hindi. Dextora composes the shots, motion, music, captions — and renders it in under a minute.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["AI storyboarding", "Auto-music", "1080p / 4K"].map((tag) => (
+                  <span key={tag} className="glass rounded-full px-3 py-1.5 text-xs text-muted-foreground">{tag}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-8 bg-gradient-primary opacity-20 blur-3xl rounded-full" />
+              <div className="relative rounded-2xl border border-white/10 bg-card p-2 shadow-glow">
+                <div className="flex items-center gap-1.5 px-3 py-2">
+                  <span className="size-2.5 rounded-full bg-red-500/70" />
+                  <span className="size-2.5 rounded-full bg-yellow-500/70" />
+                  <span className="size-2.5 rounded-full bg-green-500/70" />
+                  <span className="ml-3 text-[11px] font-mono text-muted-foreground">step · 02 · prompt-engine</span>
+                </div>
+                <div className="rounded-xl overflow-hidden aspect-video relative bg-black">
+                  <video
+                    src="https://res.cloudinary.com/devxntr39/video/upload/v1778748174/video-gen_with_prompt_lkcrxu.mp4"
+                    autoPlay muted loop playsInline preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 left-3 flex items-center gap-2 glass rounded-full px-3 py-1.5">
+                    <span className="size-1.5 rounded-full bg-red-500 animate-pulse" />
+                    <span className="text-[10px] font-medium text-white/90 uppercase tracking-wider">Live</span>
+                  </div>
+                </div>
+              </div>
+              {/* floating prompt chip */}
+              <div className="absolute -left-4 -top-5 glass rounded-xl px-4 py-2.5 shadow-card max-w-[240px] hidden md:block">
+                <div className="text-[10px] uppercase tracking-wider text-primary-glow font-mono">prompt</div>
+                <div className="text-xs mt-0.5 leading-snug">"A golden hour drone shot over Mumbai skyline"</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 3 — Edit with AI Assistant */}
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 items-center">
+            <div className="relative order-2 lg:order-1">
+              <div className="absolute -inset-8 bg-gradient-primary opacity-20 blur-3xl rounded-full" />
+              <div className="relative rounded-2xl border border-white/10 bg-card p-2 shadow-glow">
+                <div className="flex items-center gap-1.5 px-3 py-2">
+                  <span className="size-2.5 rounded-full bg-red-500/70" />
+                  <span className="size-2.5 rounded-full bg-yellow-500/70" />
+                  <span className="size-2.5 rounded-full bg-green-500/70" />
+                  <span className="ml-3 text-[11px] font-mono text-muted-foreground">step · 03 · ai-editor</span>
+                </div>
+                <div className="rounded-xl overflow-hidden aspect-video relative bg-black">
+                  <video
+                    src="https://res.cloudinary.com/devxntr39/video/upload/v1778748134/gen_video_edit_with_ai_e3ozj2.mp4"
+                    autoPlay muted loop playsInline preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 left-3 flex items-center gap-2 glass rounded-full px-3 py-1.5">
+                    <span className="size-1.5 rounded-full bg-red-500 animate-pulse" />
+                    <span className="text-[10px] font-medium text-white/90 uppercase tracking-wider">Live</span>
+                  </div>
+                </div>
+              </div>
+              {/* floating stats chip */}
+              <div className="absolute -right-4 -bottom-5 glass rounded-xl px-4 py-2.5 shadow-card flex items-center gap-2 hidden md:flex">
+                <div className="size-8 rounded-lg bg-accent/20 grid place-items-center">
+                  <Wand2 className="size-4 text-accent" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">AI edits</div>
+                  <div className="text-xs font-mono text-primary-glow">Conversational</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="order-1 lg:order-2">
+              <div className="font-serif text-8xl lg:text-9xl text-gradient leading-none opacity-80">03</div>
+              <h3 className="mt-5 text-2xl md:text-3xl font-semibold">Edit with AI assistant</h3>
+              <p className="text-muted-foreground mt-3 text-lg leading-relaxed max-w-md">
+                Not perfect yet? Chat with Dextora's AI editor — change the music, tweak captions, adjust pacing, or remix the entire vibe. No timeline. Just talk.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["Chat-based editing", "Remix styles", "One-click export"].map((tag) => (
+                  <span key={tag} className="glass rounded-full px-3 py-1.5 text-xs text-muted-foreground">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
